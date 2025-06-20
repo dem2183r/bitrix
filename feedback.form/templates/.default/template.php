@@ -65,11 +65,8 @@ document.getElementById("ajax-feedback").addEventListener("submit", function(e) 
     `;
     ul.insertBefore(li, ul.firstChild)
 
-    // Добавим отзыв первым (чтобы он был сверху)
     ul.insertBefore(li, ul.firstChild);
 
-
-    // Удалим лишние отзывы, если их больше 3
     while (ul.children.length > 3) {
       ul.removeChild(ul.lastChild);
     }
