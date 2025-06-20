@@ -1,0 +1,96 @@
+#feedback-form {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  color: #2c3e50;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+form#ajax-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #0077cc;
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.15);
+  outline: none;
+}
+
+textarea {
+  min-height: 100px;
+  resize: both;
+  overflow: auto;
+}
+
+button[type="submit"] {
+  background-color: #0077cc;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 8px;
+}
+
+button[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+#feedback-response {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+ul#feedback-list {
+  margin-top: 24px;
+  list-style: none;
+  padding-left: 0;
+}
+
+ul#feedback-list li {
+  background-color: #f5f9fc;
+  border-radius: 14px;
+  padding: 14px 18px;
+  margin-bottom: 10px;
+  border: 1px solid #dbe7f3;
+  word-wrap: break-word;
+}
+
+ul#feedback-list li b {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #2c3e50;
+}
