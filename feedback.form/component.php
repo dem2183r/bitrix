@@ -62,7 +62,8 @@ if (
                 echo json_encode([
                     "status" => "success",
                     "message" => "Спасибо за отзыв!",
-                    "items" => $lastItems
+                    "name" => htmlspecialcharsbx($name),
+                    "user_message" => nl2br(htmlspecialcharsbx($message)),
                 ]);
             } else {
                 echo json_encode(["status" => "error", "message" => "Ошибка сохранения"]);
