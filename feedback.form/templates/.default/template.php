@@ -50,25 +50,33 @@ document.getElementById("ajax-feedback").addEventListener("submit", function(e) 
   })
   .then(r => r.json())
   .then(data => {
-    const out = document.getElementById("feedback-response");
-    const ul = document.getElementById("feedback-list");
+  const out = document.getElementById("feedback-response");
+  if (data.status === "success") {
+    out.innerHTML = "<span style='color: green'>" + data.message + "</span>";
+    form.reset();
 
-    if (data.status === "success") {
-      out.innerHTML = "<span style='color: green'>" + data.message + "</span>";
+    const feedbackBlock = document.getElementById("feedback-form");
+    const ul = feedbackBlock.querySelector("ul");
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <b>${data.name}</b>
+      <span class="review-label">Отзыв:</span>
+      <span class="review-text">${data.user_message.replace(/\n/g, '<br>')}</span>
+    `;
+    ul.insertBefore(li, ul.firstChild)
 
-      ul.innerHTML = "";
+    // Добавим отзыв первым (чтобы он был сверху)
+    ul.insertBefore(li, ul.firstChild);
 
-      data.items.forEach(item => {
-        const li = document.createElement("li");
-        li.innerHTML = "<b>" + escapeHtml(item.NAME) + "</b>: " + escapeHtml(item.PREVIEW_TEXT);
-        ul.appendChild(li);
-      });
 
-      form.reset();
-    } else {
-      out.innerHTML = "<span style='color: red'>" + (data.errors ? data.errors.join('<br>') : data.message) + "</span>";
+    // Удалим лишние отзывы, если их больше 3
+    while (ul.children.length > 3) {
+      ul.removeChild(ul.lastChild);
     }
-  })
+  } else {
+    out.innerHTML = "<span style='color: red'>" + (data.errors ? data.errors.join('<br>') : data.message) + "</span>";
+  }
+})
   .catch(() => {
     document.getElementById("feedback-response").innerHTML = "Ошибка сети";
   });
