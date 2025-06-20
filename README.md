@@ -45,8 +45,13 @@ http://sdcdddb6.beget.tech/company/?name=demid+op&email=sdc.ddd.99%40mail.ru&mes
 
 Попробуйте ввести текст с HTML-тегами — они автоматически удаляются, текст показывается без форматирования.
 
-
-7. Кэш и режим AJAX
+6. Кэш и режим AJAX
 Компонент работает в AJAX-режиме, страница не перезагружается при отправке.
 
 Для проверки можно использовать параметр clear_cache=Y в URL (как в ссылке выше), чтобы сбросить кеш компонента.
+
+
+Файлы находятся в ../sdcdddb6.beget.tech/public_html/local/components/custom/feedback.form/templates/.default
+
+![image](https://github.com/user-attachments/assets/911004a8-9561-4f3d-8663-6e54a014afde)
+![image](https://github.com/user-attachments/assets/e35c39e2-d794-43e2-9744-d04c8e45596c)
